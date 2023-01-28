@@ -10,7 +10,7 @@ To use WxSatConjunctionFinder.py, edit the script and set (at the top):
 
 - A Geostationary weather satellite
 - Your latitude and longitude to 6 decimal places
-- The number of days out the conjunction forecast should go
+- The number of days out to forecast conjunctions
 
 This script is anything but efficient - calculating conjunctions within the next 30 days takes 7GB of RAM or more, and several minutes to complete. Conjunct at your own risk!
 
