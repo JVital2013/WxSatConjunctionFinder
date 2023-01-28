@@ -1,5 +1,5 @@
 # WxSatConjunctionFinder
-A quick and dirty python script that finds when NOAA 15, 18, 19, Meteor M2-2, MetOp-B, or MetOp-C is within 5 degrees of a Geostationary weather satellite, as viewed from your location.
+A quick and dirty python script that finds when NOAA 15, 18, 19, Meteor M2-2, MetOp-B, and MetOp-C are within 5 degrees of a Geostationary weather satellite, as viewed from your location.
 
 To put it another way: it finds when a POES and GOES satellite are "in line" with your dish.
 
