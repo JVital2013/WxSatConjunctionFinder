@@ -12,6 +12,7 @@ To use WxSatConjunctionFinder.py, edit the script and set (at the top):
 - The LEO weather satellites you're interested in
 - Your latitude and longitude to 6 decimal places
 - The number of days out to forecast conjunctions
+- Where to log conjunctions (optional)
 
 This script is anything but efficient - calculating conjunctions within the next 30 days takes 7GB of RAM or more, and several minutes to complete. Conjunct at your own risk!
 

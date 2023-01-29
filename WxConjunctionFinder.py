@@ -13,6 +13,7 @@ leosats = ["NOAA 15", "NOAA 18", "NOAA 19", "METEOR-M2 2", "METOP-B", "METOP-C"]
 lat = 42.188724
 lon = -78.839104
 forecastDays = 14
+#logfile = "conjunctions.txt"
 
 ######################
 # STOP UPDATING HERE #
@@ -39,6 +40,10 @@ by_name = {sat.name: sat for sat in satellites}
 
 geosatData = planets['earth'] + by_name[geosat]
 
+#Log if configured
+if 'logfile' in locals():
+    logFileHandle = open(logfile, "w")
+
 #Loop through all LEO Satellites
 for leosat in leosats:
     leosatData = planets['earth'] + by_name[leosat]
@@ -49,13 +54,28 @@ for leosat in leosats:
         return g.separation_from(n).degrees <= 5
     geosat_leosat_quadrature.step_days = 0.0001
     
-    print("\nCalculating conjuctions for " + leosat + "...", end="\r")
+    print("\nCalculating conjunctions for " + leosat + "...", end="\r")
     times,values = find_discrete(t1, t2, geosat_leosat_quadrature)
+    
     sys.stdout.write("\033[K")
-    print(leosat + " within 5deg of " + geosat)
-    print("------------------------------")
+    print(leosat + " within 5deg of " + geosat + "\n------------------------------")
+    
+    if 'logfile' in locals():
+        logFileHandle.write(leosat + " within 5deg of " + geosat + "\n------------------------------")
+    
     for ti, vi in zip(times, values):
         if(vi == 1):
             print("Start: ", ti.utc_strftime('%Y-%m-%d %H:%M:%S'))
+            if 'logfile' in locals():
+                logFileHandle.write("\n" + "Start: " + ti.utc_strftime('%Y-%m-%d %H:%M:%S'))
         else:
             print("End: ", ti.utc_strftime('%Y-%m-%d %H:%M:%S'))
+            if 'logfile' in locals():
+                logFileHandle.write("\n" + "End: " + ti.utc_strftime('%Y-%m-%d %H:%M:%S'))
+            
+    if 'logfile' in locals():
+        logFileHandle.write("\n\n")
+
+#Close the log
+if 'logfile' in locals():
+    logFileHandle.close()
