@@ -1,5 +1,5 @@
 # WxSatConjunctionFinder
-A quick and dirty python script that finds when NOAA 15, 18, 19, Meteor M2-2, MetOp-B, and MetOp-C are within 5 degrees of a Geostationary weather satellite, as viewed from your location.
+A quick and dirty python script that finds when LEO weather satellites like NOAA 15, 18, 19, Meteor M2-2, MetOp-B, and MetOp-C are within 5 degrees of a Geostationary weather satellite, as viewed from your location.
 
 To put it another way: it finds when a POES and GOES satellite are "in line" with your dish.
 
@@ -8,7 +8,8 @@ WxSatConjunctionFinder.py script depends on SkyField. To install it, run `pip in
 
 To use WxSatConjunctionFinder.py, edit the script and set (at the top): 
 
-- A Geostationary weather satellite
+- A Geostationary satellite
+- The LEO weather satellites you're interested in
 - Your latitude and longitude to 6 decimal places
 - The number of days out to forecast conjunctions
 
